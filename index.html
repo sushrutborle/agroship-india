@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroShip India — Premium Agri Exports</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.30.0/iconfont/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;--gold-light:#F5E6C0;--dark:#1A1A0E;--dark2:#2C2C1A;
+  --green:#2D5016;--green-light:#E8F0DC;--cream:#FAF8F2;--text:#1A1A0E;
+  --text2:#5A5A3A;--border:#E0D8C0;--white:#FFFFFF;
+  --red:#C0392B;--red-light:#FDECEA;--blue:#1A6FA8;--blue-light:#E8F3FB;
+  --font-head:'Playfair Display',serif;--font-body:'DM Sans',sans-serif;
+}
+body{font-family:var(--font-body);background:var(--cream);color:var(--text);min-height:100vh}
+
+/* ── NAV ── */
+nav{background:var(--dark);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:200}
+.nav-logo{font-family:var(--font-head);color:var(--gold);font-size:1.3rem;font-weight:700}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:#C8C8A8;text-decoration:none;font-size:0.82rem;font-weight:400;letter-spacing:0.5px;text-transform:uppercase;cursor:pointer;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-right{display:flex;gap:0.75rem;align-items:center}
+.nav-cta{background:var(--gold);color:var(--dark);padding:8px 18px;border-radius:4px;font-size:0.78rem;font-weight:500;cursor:pointer;border:none;letter-spacing:0.5px;text-transform:uppercase;font-family:var(--font-body)}
+.nav-cta:hover{background:#B8923C}
+.nav-order{background:var(--green);color:#fff;padding:8px 18px;border-radius:4px;font-size:0.78rem;font-weight:500;cursor:pointer;border:none;letter-spacing:0.5px;text-transform:uppercase;font-family:var(--font-body)}
+.nav-order:hover{background:#1F3C0F}
+
+/* ── PAGES ── */
+.page{display:none;min-height:calc(100vh - 64px)}
+.page.active{display:block}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 40%,#1A2A0A 100%);padding:80px 2rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(201,168,76,.08),transparent 60%),radial-gradient(circle at 80% 50%,rgba(45,80,22,.15),transparent 60%)}
+.hero-tag{display:inline-block;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:.75rem;padding:6px 16px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem}
+.hero h1{font-family:var(--font-head);color:#fff;font-size:3rem;font-weight:700;line-height:1.2;max-width:700px;margin:0 auto 1rem}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#B0B090;font-size:1rem;max-width:500px;margin:0 auto 2.5rem;line-height:1.7;font-weight:300}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--dark);padding:14px 32px;border-radius:4px;font-size:.9rem;font-weight:500;cursor:pointer;border:none;letter-spacing:.5px;font-family:var(--font-body)}
+.btn-primary:hover{background:#B8923C}
+.btn-green{background:var(--green);color:#fff;padding:14px 32px;border-radius:4px;font-size:.9rem;font-weight:500;cursor:pointer;border:none;letter-spacing:.5px;font-family:var(--font-body)}
+.btn-green:hover{background:#1F3C0F}
+.btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:4px;font-size:.9rem;border:1px solid rgba(255,255,255,.25);cursor:pointer;font-family:var(--font-body)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── STATS BAR ── */
+.stats-bar{background:var(--white);border-bottom:1px solid var(--border);padding:1.5rem 2rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap}
+.stat-num{font-family:var(--font-head);font-size:1.8rem;color:var(--green);font-weight:600;text-align:center}
+.stat-label{font-size:.75rem;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-top:2px;text-align:center}
+
+/* ── SECTION ── */
+.section{padding:60px 2rem;max-width:1100px;margin:0 auto}
+.section-tag{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);font-weight:500;margin-bottom:.5rem}
+.section h2{font-family:var(--font-head);font-size:2rem;color:var(--dark);margin-bottom:.5rem}
+.section-sub{color:var(--text2);font-size:.95rem;margin-bottom:2.5rem;max-width:500px;line-height:1.6}
+
+/* ── PRODUCT CARDS ── */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}
+.product-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.08)}
+.product-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative}
+.product-badge{position:absolute;top:12px;right:12px;background:var(--green);color:#fff;font-size:.65rem;padding:3px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
+.product-badge.draft-badge{background:var(--gold);color:var(--dark)}
+.product-info{padding:1rem 1.25rem 1.25rem}
+.product-name{font-family:var(--font-head);font-size:1.1rem;font-weight:600;color:var(--dark);margin-bottom:4px}
+.product-origin{font-size:.75rem;color:var(--text2);margin-bottom:8px;display:flex;align-items:center;gap:4px}
+.product-desc{font-size:.82rem;color:var(--text2);line-height:1.5;margin-bottom:12px}
+.product-price{font-size:.8rem;font-weight:500;color:var(--green);border-top:1px solid var(--border);padding-top:10px;display:flex;justify-content:space-between;align-items:center}
+.tag-pill{font-size:.65rem;background:var(--green-light);color:var(--green);padding:2px 8px;border-radius:20px}
+.order-btn-card{margin-top:10px;width:100%;background:var(--green);color:#fff;border:none;border-radius:6px;padding:8px;font-size:.8rem;font-family:var(--font-body);cursor:pointer;font-weight:500}
+.order-btn-card:hover{background:#1F3C0F}
+.empty-state{text-align:center;padding:3rem;color:var(--text2);grid-column:1/-1}
+.empty-state i{font-size:3rem;margin-bottom:1rem;display:block;opacity:.4}
+
+/* ── WHY CARDS ── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem}
+.why-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
+.why-icon{width:44px;height:44px;background:var(--green-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.why-icon i{font-size:22px;color:var(--green)}
+.why-card h4{font-family:var(--font-head);font-size:1rem;color:var(--dark);margin-bottom:6px}
+.why-card p{font-size:.82rem;color:var(--text2);line-height:1.5}
+
+/* ── CONTACT BAND ── */
+.contact-band{background:var(--dark);padding:60px 2rem;text-align:center}
+.contact-band h2{font-family:var(--font-head);color:#fff;font-size:1.8rem;margin-bottom:.5rem}
+.contact-band p{color:#A0A080;font-size:.9rem;margin-bottom:2rem}
+.contact-row{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.contact-item{display:flex;align-items:center;gap:8px;color:#C8C8A8;font-size:.85rem}
+.contact-item i{color:var(--gold);font-size:18px}
+footer{background:#0E0E06;padding:1.5rem 2rem;text-align:center;color:#606050;font-size:.78rem}
+
+/* ── PAGE HERO ── */
+.page-hero{background:var(--dark);padding:50px 2rem;text-align:center}
+.page-hero h1{font-family:var(--font-head);color:#fff;font-size:2.2rem;margin-bottom:.5rem}
+.page-hero p{color:#A0A080;font-size:.9rem}
+.breadcrumb{display:flex;gap:8px;justify-content:center;align-items:center;margin-top:1rem}
+.breadcrumb span{font-size:.75rem;color:#606050;cursor:pointer}
+.breadcrumb span.active{color:var(--gold)}
+
+/* ── FILTER BAR ── */
+.filter-bar{background:var(--white);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;justify-content:center}
+.filter-btn{background:transparent;border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:.8rem;cursor:pointer;color:var(--text2);font-family:var(--font-body);transition:all .2s}
+.filter-btn.active,.filter-btn:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.search-input{border:1px solid var(--border);border-radius:20px;padding:7px 14px 7px 36px;font-size:.82rem;font-family:var(--font-body);outline:none;width:200px}
+.search-wrap{position:relative}
+.search-wrap i{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:16px;pointer-events:none}
+
+/* ── FORMS ── */
+.form-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group.full{grid-column:1/-1}
+.form-label{font-size:.78rem;font-weight:500;color:var(--text2);text-transform:uppercase;letter-spacing:.5px}
+.form-label .req{color:var(--red)}
+.form-input,.form-select,.form-textarea{border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:.88rem;font-family:var(--font-body);color:var(--text);background:var(--white);outline:none;transition:border-color .2s;width:100%}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--green)}
+.form-textarea{resize:vertical;min-height:80px}
+.form-submit{background:var(--green);color:#fff;border:none;padding:12px 32px;border-radius:8px;font-size:.9rem;font-weight:500;cursor:pointer;font-family:var(--font-body);width:100%;margin-top:.5rem}
+.form-submit:hover{background:#1F3C0F}
+.form-submit:disabled{opacity:.6;cursor:not-allowed}
+
+/* ── ORDER PAGE SPECIAL ── */
+.order-hero{background:linear-gradient(135deg,var(--green) 0%,#1F3C0F 100%);padding:50px 2rem;text-align:center}
+.order-hero h1{font-family:var(--font-head);color:#fff;font-size:2.2rem;margin-bottom:.5rem}
+.order-hero p{color:#C0D8A0;font-size:.9rem}
+.order-steps{display:flex;justify-content:center;gap:2rem;margin-top:1.5rem;flex-wrap:wrap}
+.step-item{display:flex;align-items:center;gap:8px;color:#A0C080;font-size:.8rem}
+.step-num{width:24px;height:24px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;color:#fff}
+
+/* ── ADMIN ── */
+.admin-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 64px)}
+.admin-sidebar{background:var(--dark2);padding:1.5rem 0}
+.admin-sidebar h3{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:#606050;padding:0 1.25rem;margin-bottom:.75rem}
+.sidebar-link{display:flex;align-items:center;gap:10px;padding:10px 1.25rem;font-size:.85rem;color:#A0A080;cursor:pointer;transition:all .2s;position:relative}
+.sidebar-link:hover,.sidebar-link.active{background:rgba(201,168,76,.08);color:var(--gold)}
+.sidebar-link i{font-size:18px}
+.sidebar-badge{position:absolute;right:1rem;background:var(--red);color:#fff;font-size:.65rem;padding:2px 7px;border-radius:10px;font-weight:600}
+.sidebar-divider{border:none;border-top:1px solid rgba(255,255,255,.06);margin:.75rem 0}
+.admin-main{background:var(--cream);padding:2rem;overflow-x:auto}
+.admin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
+.admin-header h2{font-family:var(--font-head);font-size:1.5rem;color:var(--dark)}
+.btn-add{background:var(--green);color:#fff;border:none;padding:10px 20px;border-radius:6px;font-size:.85rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:var(--font-body)}
+.btn-add:hover{background:#1F3C0F}
+
+/* ── ADMIN TABLE ── */
+.admin-table{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;overflow-x:auto}
+.admin-table table{width:100%;border-collapse:collapse;min-width:600px}
+.admin-table th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);padding:12px 16px;background:var(--cream);border-bottom:1px solid var(--border);white-space:nowrap}
+.admin-table td{padding:12px 16px;font-size:.85rem;border-bottom:1px solid var(--border);vertical-align:middle}
+.admin-table tr:last-child td{border-bottom:none}
+.admin-table tr:hover td{background:#FAFAF5}
+.prod-emoji{font-size:1.3rem;margin-right:6px}
+.status-badge{font-size:.7rem;padding:3px 10px;border-radius:20px;font-weight:500;white-space:nowrap}
+.s-active{background:var(--green-light);color:var(--green)}
+.s-draft{background:#FFF3CD;color:#856404}
+.s-new{background:#FFF3CD;color:#856404}
+.s-processing{background:var(--blue-light);color:var(--blue)}
+.s-confirmed{background:var(--green-light);color:var(--green)}
+.s-shipped{background:#E8F0FB;color:#2D3A8C}
+.s-completed{background:#F0FFF0;color:#155724}
+.s-cancelled{background:var(--red-light);color:var(--red)}
+.s-contacted{background:var(--blue-light);color:var(--blue)}
+.s-quotation_sent{background:#E8F0FB;color:#2D3A8C}
+.s-closed{background:#F0F0F0;color:#666}
+.action-btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn-icon{background:none;border:1px solid var(--border);border-radius:6px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s}
+.btn-icon:hover{background:var(--cream)}
+.btn-icon.danger:hover{background:var(--red-light);border-color:#F0A0A0}
+.btn-icon i{font-size:14px;color:var(--text2)}
+.btn-icon.danger:hover i{color:var(--red)}
+.status-select{border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:.75rem;font-family:var(--font-body);background:var(--white);cursor:pointer;outline:none}
+
+/* ── DASH CARDS ── */
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin-bottom:2rem}
+.dash-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+.dash-num{font-family:var(--font-head);font-size:2rem;font-weight:600;color:var(--green)}
+.dash-num.warn{color:var(--gold)}
+.dash-num.danger{color:var(--red)}
+.dash-label{font-size:.75rem;color:var(--text2);margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;display:none;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white);border-radius:16px;padding:2rem;width:100%;max-width:540px;max-height:88vh;overflow-y:auto}
+.modal h3{font-family:var(--font-head);font-size:1.4rem;color:var(--dark);margin-bottom:1.5rem}
+.emoji-picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.emoji-opt{width:40px;height:40px;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;cursor:pointer;transition:all .2s}
+.emoji-opt.selected,.emoji-opt:hover{border-color:var(--green);background:var(--green-light)}
+.modal-actions{display:flex;gap:1rem;justify-content:flex-end;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border)}
+.btn-cancel{background:none;border:1px solid var(--border);padding:10px 20px;border-radius:6px;font-size:.85rem;cursor:pointer;font-family:var(--font-body);color:var(--text2)}
+.btn-save{background:var(--green);color:#fff;border:none;padding:10px 24px;border-radius:6px;font-size:.85rem;font-weight:500;cursor:pointer;font-family:var(--font-body)}
+.btn-save:hover{background:#1F3C0F}
+
+/* ── LOGIN MODAL ── */
+.login-box{background:var(--white);border-radius:16px;padding:2.5rem;width:100%;max-width:380px}
+.login-box h3{font-family:var(--font-head);font-size:1.5rem;color:var(--dark);margin-bottom:.25rem}
+.login-box p{color:var(--text2);font-size:.85rem;margin-bottom:1.5rem}
+.login-err{background:var(--red-light);color:var(--red);padding:10px 14px;border-radius:8px;font-size:.82rem;margin-bottom:1rem;display:none}
+.login-err.show{display:block}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--dark);color:#fff;padding:12px 20px;border-radius:8px;font-size:.85rem;z-index:3000;display:none;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(0,0,0,.2);max-width:320px}
+.toast.show{display:flex}
+.toast i{font-size:18px}
+.toast.success i{color:#6BCB77}
+.toast.error i{color:#FF6B6B}
+
+/* ── SPINNER ── */
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── SUCCESS SCREEN ── */
+.success-screen{text-align:center;padding:3rem 1.5rem}
+.success-icon{font-size:4rem;margin-bottom:1rem}
+.success-screen h3{font-family:var(--font-head);font-size:1.5rem;color:var(--dark);margin-bottom:.5rem}
+.success-screen p{color:var(--text2);font-size:.9rem;margin-bottom:1.5rem}
+
+@media(max-width:768px){
+  .admin-layout{grid-template-columns:1fr}
+  .admin-sidebar{display:none}
+  .form-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero h1{font-size:2rem}
+  .stats-bar{gap:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-logo">🌿 AgroShip India</div>
+  <ul class="nav-links">
+    <li><a class="nav-link active" data-page="home">Home</a></li>
+    <li><a class="nav-link" data-page="products">Products</a></li>
+    <li><a class="nav-link" data-page="order">Place Order</a></li>
+    <li><a class="nav-link" data-page="about">About</a></li>
+    <li><a class="nav-link" data-page="contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-order" onclick="showPage('order')">📦 Place Order</button>
+    <button class="nav-cta" onclick="openLoginModal()">⚙ Admin</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HOME PAGE
+═══════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-tag">🇮🇳 Premium Indian Agri Exports</div>
+    <h1>From India's Fields<br>to the <span>World's Tables</span></h1>
+    <p>We export premium quality vegetables, spices and agricultural products from India's finest growing regions to global markets.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="showPage('products')">View Our Products</button>
+      <button class="btn-green" onclick="showPage('order')">📦 Place Order</button>
+      <button class="btn-outline" onclick="showPage('contact')">Get a Quote</button>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div><div class="stat-num" id="stat-products">—</div><div class="stat-label">Products</div></div>
+    <div><div class="stat-num">12+</div><div class="stat-label">Countries</div></div>
+    <div><div class="stat-num">APEDA</div><div class="stat-label">Registered</div></div>
+    <div><div class="stat-num">FSSAI</div><div class="stat-label">Certified</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-tag">Our Products</div>
+    <h2>Fresh From the Source</h2>
+    <p class="section-sub">Directly sourced from India's agricultural heartland — Nashik, Sangli, Jalgaon and beyond.</p>
+    <div class="products-grid" id="home-products"><div class="empty-state"><i class="ti ti-loader" style="animation:spin .8s linear infinite"></i>Loading products...</div></div>
+  </div>
+
+  <div style="background:var(--white);padding:60px 2rem">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="section-tag">Why Choose Us</div>
+      <h2 style="font-family:var(--font-head);font-size:2rem;color:var(--dark);margin-bottom:.5rem">Our Advantage</h2>
+      <p class="section-sub">Built on deep agri expertise, supply chain excellence and compliance know-how.</p>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon"><i class="ti ti-certificate"></i></div><h4>APEDA Registered</h4><p>Fully registered and compliant with all Indian agri export regulations.</p></div>
+        <div class="why-card"><div class="why-icon"><i class="ti ti-truck"></i></div><h4>Supply Chain Experts</h4><p>Dedicated supply chain engineers ensuring quality from farm to port.</p></div>
+        <div class="why-card"><div class="why-icon"><i class="ti ti-map-pin"></i></div><h4>Prime Sourcing</h4><p>Direct from Nashik onions, Sangli turmeric, Jalgaon bananas — zero middlemen.</p></div>
+        <div class="why-card"><div class="why-icon"><i class="ti ti-calculator"></i></div><h4>CA-Backed Ops</h4><p>In-house CA for RoDTEP claims, GST refunds and forex compliance.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-band">
+    <h2>Ready to Import From India?</h2>
+    <p>Get competitive FOB pricing with phytosanitary certificates and full documentation.</p>
+    <div class="contact-row">
+      <div class="contact-item"><i class="ti ti-mail"></i><span id="footer-email">exports@agroshipindia.com</span></div>
+      <div class="contact-item"><i class="ti ti-phone"></i><span id="footer-phone">+91 98765 43210</span></div>
+      <div class="contact-item"><i class="ti ti-map-pin"></i><span id="footer-loc">Pune, Maharashtra, India</span></div>
+    </div>
+  </div>
+  <footer>© 2025 AgroShip India. IEC Registered | APEDA Certified | FSSAI Licensed</footer>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PRODUCTS PAGE
+═══════════════════════════════════════════ -->
+<div id="page-products" class="page">
+  <div class="page-hero">
+    <h1>Our Export Products</h1>
+    <p>Premium grade, phytosanitary certified, globally compliant</p>
+    <div class="breadcrumb"><span onclick="showPage('home')">Home</span><span>›</span><span class="active">Products</span></div>
+  </div>
+  <div class="filter-bar">
+    <div class="search-wrap"><i class="ti ti-search"></i><input type="text" class="search-input" id="prod-search" placeholder="Search products..." oninput="filterProducts()"></div>
+    <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn" onclick="setFilter('Vegetable',this)">Vegetables</button>
+    <button class="filter-btn" onclick="setFilter('Spice',this)">Spices</button>
+    <button class="filter-btn" onclick="setFilter('Fruit',this)">Fruits</button>
+    <button class="filter-btn" onclick="setFilter('Grain',this)">Grains</button>
+  </div>
+  <div class="section">
+    <div class="products-grid" id="all-products"><div class="empty-state"><i class="ti ti-loader" style="animation:spin .8s linear infinite"></i>Loading...</div></div>
+  </div>
+  <footer>© 2025 AgroShip India. IEC Registered | APEDA Certified | FSSAI Licensed</footer>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PLACE ORDER PAGE
+═══════════════════════════════════════════ -->
+<div id="page-order" class="page">
+  <div class="order-hero">
+    <h1>📦 Place Your Order</h1>
+    <p>Fill in your requirements and our team will confirm within 24 hours</p>
+    <div class="order-steps">
+      <div class="step-item"><div class="step-num">1</div>Fill Order Form</div>
+      <div class="step-item">→</div>
+      <div class="step-item"><div class="step-num">2</div>We Confirm &amp; Quote</div>
+      <div class="step-item">→</div>
+      <div class="step-item"><div class="step-num">3</div>Payment &amp; Shipment</div>
+    </div>
+  </div>
+
+  <div class="section" style="max-width:680px">
+    <div class="form-card" id="order-form-wrap">
+      <div class="section-tag">Order Details</div>
+      <h2 style="margin-bottom:1.5rem">New Export Order</h2>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Your Name <span class="req">*</span></label><input type="text" class="form-input" id="o-name" placeholder="Full name"></div>
+        <div class="form-group"><label class="form-label">Company Name</label><input type="text" class="form-input" id="o-company" placeholder="Company"></div>
+        <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input type="email" class="form-input" id="o-email" placeholder="email@company.com"></div>
+        <div class="form-group"><label class="form-label">Phone / WhatsApp</label><input type="text" class="form-input" id="o-phone" placeholder="+1 234 567 8900"></div>
+        <div class="form-group"><label class="form-label">Country <span class="req">*</span></label><input type="text" class="form-input" id="o-country" placeholder="UAE, UK, USA..."></div>
+        <div class="form-group"><label class="form-label">Product <span class="req">*</span></label>
+          <select class="form-select" id="o-product" onchange="onProductSelect()">
+            <option value="">— Select Product —</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">Quantity (Metric Tonnes) <span class="req">*</span></label><input type="number" class="form-input" id="o-qty" placeholder="e.g. 5" min="0.1" step="0.1"></div>
+        <div class="form-group"><label class="form-label">Required Delivery Date</label><input type="date" class="form-input" id="o-date"></div>
+        <div class="form-group full"><label class="form-label">Special Notes / Requirements</label><textarea class="form-textarea" id="o-notes" placeholder="Packaging preferences, certifications needed, Incoterms, port of destination..."></textarea></div>
+      </div>
+      <button class="form-submit" onclick="submitOrder()" id="order-submit-btn">Submit Order Request</button>
+    </div>
+
+    <div id="order-success" style="display:none">
+      <div class="form-card">
+        <div class="success-screen">
+          <div class="success-icon">✅</div>
+          <h3>Order Request Submitted!</h3>
+          <p>Thank you! Your order has been saved. Our team will contact you within 24 hours with pricing and shipment details.</p>
+          <button class="btn-green" onclick="resetOrderForm()">Place Another Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>© 2025 AgroShip India. IEC Registered | APEDA Certified | FSSAI Licensed</footer>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT PAGE
+═══════════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="page-hero"><h1>About AgroShip India</h1><p>A Pune-based agri export startup built by professionals</p></div>
+  <div class="section" style="max-width:700px">
+    <div class="section-tag">Our Story</div>
+    <h2>Built by Experts, For Global Markets</h2>
+    <p style="color:var(--text2);line-height:1.8;margin-bottom:1rem">AgroShip India is a Pune-based agricultural export company combining deep supply chain engineering expertise with chartered accountancy-backed compliance to deliver premium Indian produce to global buyers.</p>
+    <p style="color:var(--text2);line-height:1.8;margin-bottom:1rem">Founded with a vision to connect India's rich agricultural heartland — from Nashik's onion fields to Sangli's turmeric markets — with buyers across the UAE, UK, USA and Southeast Asia.</p>
+    <p style="color:var(--text2);line-height:1.8">We handle everything: APEDA-compliant documentation, phytosanitary certificates, cold chain logistics and FOB pricing — so your import is seamless.</p>
+  </div>
+  <footer>© 2025 AgroShip India. IEC Registered | APEDA Certified | FSSAI Licensed</footer>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CONTACT PAGE
+═══════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div class="page-hero"><h1>Send Inquiry</h1><p>We respond within 24 hours with full pricing and documentation</p></div>
+  <div class="section" style="max-width:600px">
+    <div class="form-card" id="contact-form-wrap">
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Your Name <span class="req">*</span></label><input type="text" class="form-input" id="c-name" placeholder="Full name"></div>
+        <div class="form-group"><label class="form-label">Company</label><input type="text" class="form-input" id="c-company" placeholder="Company name"></div>
+        <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input type="email" class="form-input" id="c-email" placeholder="email@company.com"></div>
+        <div class="form-group"><label class="form-label">Country</label><input type="text" class="form-input" id="c-country" placeholder="UAE, UK, USA..."></div>
+        <div class="form-group full"><label class="form-label">Products of Interest</label><input type="text" class="form-input" id="c-products" placeholder="e.g. Onion 5MT, Turmeric 2MT"></div>
+        <div class="form-group full"><label class="form-label">Message</label><textarea class="form-textarea" id="c-message" placeholder="Specific requirements, certifications, delivery timeline..."></textarea></div>
+      </div>
+      <button class="form-submit" onclick="submitInquiry()" id="inq-submit-btn">Send Inquiry</button>
+    </div>
+    <div id="contact-success" style="display:none">
+      <div class="form-card">
+        <div class="success-screen">
+          <div class="success-icon">📬</div>
+          <h3>Inquiry Sent!</h3>
+          <p>We've received your inquiry and will respond within 24 hours.</p>
+          <button class="btn-green" onclick="resetContactForm()">Send Another Inquiry</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>© 2025 AgroShip India. IEC Registered | APEDA Certified | FSSAI Licensed</footer>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ADMIN PAGE
+═══════════════════════════════════════════ -->
+<div id="page-admin" class="page">
+  <div class="admin-layout">
+    <div class="admin-sidebar">
+      <h3>Admin Panel</h3>
+      <a class="sidebar-link active" onclick="showAdminSection('dashboard',this)"><i class="ti ti-layout-dashboard"></i>Dashboard</a>
+      <a class="sidebar-link" onclick="showAdminSection('products',this)"><i class="ti ti-package"></i>Products</a>
+      <a class="sidebar-link" onclick="showAdminSection('orders',this)"><i class="ti ti-shopping-cart"></i>Orders<span class="sidebar-badge" id="badge-orders">0</span></a>
+      <a class="sidebar-link" onclick="showAdminSection('inquiries',this)"><i class="ti ti-mail"></i>Inquiries<span class="sidebar-badge" id="badge-inquiries">0</span></a>
+      <a class="sidebar-link" onclick="showAdminSection('settings',this)"><i class="ti ti-settings"></i>Settings</a>
+      <hr class="sidebar-divider">
+      <a class="sidebar-link" onclick="adminLogout()"><i class="ti ti-logout"></i>Logout</a>
+      <a class="sidebar-link" onclick="showPage('home')"><i class="ti ti-external-link"></i>View Website</a>
+    </div>
+
+    <div class="admin-main">
+
+      <!-- DASHBOARD -->
+      <div id="admin-dashboard">
+        <div class="admin-header"><h2>Dashboard</h2><button class="btn-add" onclick="loadDashboard()"><i class="ti ti-refresh"></i>Refresh</button></div>
+        <div class="dash-grid">
+          <div class="dash-card"><div class="dash-num" id="d-total-prod">—</div><div class="dash-label">Total Products</div></div>
+          <div class="dash-card"><div class="dash-num" id="d-active-prod">—</div><div class="dash-label">Active Products</div></div>
+          <div class="dash-card"><div class="dash-num warn" id="d-new-orders">—</div><div class="dash-label">New Orders</div></div>
+          <div class="dash-card"><div class="dash-num" id="d-total-orders">—</div><div class="dash-label">Total Orders</div></div>
+          <div class="dash-card"><div class="dash-num warn" id="d-new-inq">—</div><div class="dash-label">New Inquiries</div></div>
+          <div class="dash-card"><div class="dash-num" id="d-total-inq">—</div><div class="dash-label">Total Inquiries</div></div>
+        </div>
+        <p style="color:var(--text2);font-size:.85rem">Welcome back! Use the sidebar to manage products, orders and inquiries.</p>
+      </div>
+
+      <!-- PRODUCTS ADMIN -->
+      <div id="admin-products" style="display:none">
+        <div class="admin-header"><h2>Manage Products</h2><button class="btn-add" onclick="openProductModal()"><i class="ti ti-plus"></i>Add New Product</button></div>
+        <div class="admin-table"><table>
+          <thead><tr><th>Product</th><th>Category</th><th>Origin</th><th>Price</th><th>Markets</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="products-table"><tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--text2)">Loading...</td></tr></tbody>
+        </table></div>
+      </div>
+
+      <!-- ORDERS ADMIN -->
+      <div id="admin-orders" style="display:none">
+        <div class="admin-header"><h2>Orders</h2><button class="btn-add" onclick="loadOrders()"><i class="ti ti-refresh"></i>Refresh</button></div>
+        <div class="admin-table"><table>
+          <thead><tr><th>ID</th><th>Customer</th><th>Product</th><th>Qty (MT)</th><th>Country</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="orders-table"><tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--text2)">Loading...</td></tr></tbody>
+        </table></div>
+      </div>
+
+      <!-- INQUIRIES ADMIN -->
+      <div id="admin-inquiries" style="display:none">
+        <div class="admin-header"><h2>Inquiries</h2><button class="btn-add" onclick="loadInquiries()"><i class="ti ti-refresh"></i>Refresh</button></div>
+        <div class="admin-table"><table>
+          <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Country</th><th>Products</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="inquiries-table"><tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--text2)">Loading...</td></tr></tbody>
+        </table></div>
+      </div>
+
+      <!-- SETTINGS ADMIN -->
+      <div id="admin-settings" style="display:none">
+        <div class="admin-header"><h2>Website Settings</h2></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;max-width:500px">
+          <div class="form-group" style="margin-bottom:1rem"><label class="form-label">Company Name</label><input type="text" class="form-input" id="s-name"></div>
+          <div class="form-group" style="margin-bottom:1rem"><label class="form-label">Email</label><input type="email" class="form-input" id="s-email"></div>
+          <div class="form-group" style="margin-bottom:1rem"><label class="form-label">Phone</label><input type="text" class="form-input" id="s-phone"></div>
+          <div class="form-group" style="margin-bottom:1rem"><label class="form-label">Location</label><input type="text" class="form-input" id="s-loc"></div>
+          <div class="form-group" style="margin-bottom:1.5rem"><label class="form-label">Tagline</label><input type="text" class="form-input" id="s-tagline"></div>
+          <button class="btn-save" onclick="saveSettings()">Save Settings</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LOGIN MODAL ═══ -->
+<div class="modal-overlay" id="login-modal">
+  <div class="login-box">
+    <h3>Admin Login</h3>
+    <p>Sign in to manage your AgroShip portal</p>
+    <div class="login-err" id="login-err">Invalid email or password</div>
+    <div class="form-group" style="margin-bottom:1rem"><label class="form-label">Email</label><input type="email" class="form-input" id="l-email" placeholder="admin@agroshipindia.com" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <div class="form-group" style="margin-bottom:1.5rem"><label class="form-label">Password</label><input type="password" class="form-input" id="l-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <button class="form-submit" onclick="doLogin()" id="login-btn">Sign In</button>
+    <button class="btn-cancel" style="width:100%;margin-top:.75rem" onclick="closeLoginModal()">Cancel</button>
+    <!-- <p style="font-size:.75rem;color:var(--text2);margin-top:1rem;text-align:center">Default: admin@agroshipindia.com / admin123</p> -->
+  </div>
+</div>
+
+<!-- ═══ PRODUCT MODAL ═══ -->
+<div class="modal-overlay" id="product-modal">
+  <div class="modal">
+    <h3 id="prod-modal-title">Add New Product</h3>
+    <div class="form-grid">
+      <div class="form-group full"><label class="form-label">Product Name <span class="req">*</span></label><input type="text" class="form-input" id="f-name" placeholder="e.g. Fresh Red Onion"></div>
+      <div class="form-group"><label class="form-label">Category</label>
+        <select class="form-select" id="f-cat"><option>Vegetable</option><option>Spice</option><option>Fruit</option><option>Grain</option><option>Other</option></select>
+      </div>
+      <div class="form-group"><label class="form-label">Status</label>
+        <select class="form-select" id="f-status"><option value="active">Active</option><option value="draft">Draft</option></select>
+      </div>
+      <div class="form-group full"><label class="form-label">Origin / Sourcing Region</label><input type="text" class="form-input" id="f-origin" placeholder="e.g. Nashik, Maharashtra"></div>
+      <div class="form-group full"><label class="form-label">Description</label><textarea class="form-textarea" id="f-desc" placeholder="Quality grade, packaging, certifications..."></textarea></div>
+      <div class="form-group"><label class="form-label">FOB Price (per MT)</label><input type="text" class="form-input" id="f-price" placeholder="e.g. USD 280–320/MT"></div>
+      <div class="form-group"><label class="form-label">Target Markets</label><input type="text" class="form-input" id="f-markets" placeholder="e.g. UAE, UK, USA"></div>
+      <div class="form-group full"><label class="form-label">Choose Icon</label><div class="emoji-picker" id="emoji-picker"></div></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeProductModal()">Cancel</button>
+      <button class="btn-save" onclick="saveProduct()" id="prod-save-btn">Save Product</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast"><i class="ti ti-check"></i><span id="toast-msg"></span></div>
+
+<script>
+// ═══════════════════════════════════════════
+//  CONFIG
+// ═══════════════════════════════════════════
+const API = 'http://127.0.0.1:8000/api';
+const EMOJIS = ['🧅','🍋','🍌','🌿','🧄','🥬','🥦','🌶️','🫛','🍅','🥕','🥔','🌽','🍇','🫙','🫚'];
+
+let authToken = localStorage.getItem('agro_token') || null;
+let authUser  = JSON.parse(localStorage.getItem('agro_user') || 'null');
+let allProducts = [];
+let editingProductId = null;
+let selectedEmoji = '🌿';
+let currentFilter = 'all';
+
+// ═══════════════════════════════════════════
+//  API HELPERS
+// ═══════════════════════════════════════════
+async function api(path, method='GET', body=null, auth=false) {
+  const headers = { 'Content-Type': 'application/json' };
+  if (auth && authToken) headers['Authorization'] = `Bearer ${authToken}`;
+  const opts = { method, headers };
+  if (body) opts.body = JSON.stringify(body);
+  const res = await fetch(API + path, opts);
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.detail || `HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+// ═══════════════════════════════════════════
+//  PAGE NAVIGATION
+// ═══════════════════════════════════════════
+function showPage(name) {
+  if (name === 'admin' && !authToken) { openLoginModal(); return; }
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.dataset.page === name));
+  window.scrollTo(0, 0);
+  if (name === 'products') loadProductsPage();
+  if (name === 'order')    loadOrderProductSelect();
+  if (name === 'admin')    { loadDashboard(); loadProducts(); }
+}
+
+document.querySelectorAll('.nav-link').forEach(l =>
+  l.addEventListener('click', e => { e.preventDefault(); showPage(l.dataset.page); })
+);
+
+// ═══════════════════════════════════════════
+//  PRODUCTS — PUBLIC
+// ═══════════════════════════════════════════
+async function loadHomeProducts() {
+  try {
+    allProducts = await api('/products?status=active');
+    document.getElementById('stat-products').textContent = allProducts.length;
+    renderHomeProducts();
+  } catch(e) { document.getElementById('home-products').innerHTML = '<div class="empty-state"><i class="ti ti-wifi-off"></i>Could not load products. Is the backend running?</div>'; }
+}
+
+function renderHomeProducts() {
+  const list = allProducts.slice(0, 4);
+  document.getElementById('home-products').innerHTML = list.length
+    ? list.map(p => productCard(p, true)).join('')
+    : '<div class="empty-state"><i class="ti ti-package"></i>No active products yet.</div>';
+}
+
+async function loadProductsPage() {
+  try {
+    allProducts = await api('/products?status=active');
+    filterProducts();
+  } catch(e) { document.getElementById('all-products').innerHTML = '<div class="empty-state"><i class="ti ti-wifi-off"></i>Could not load products.</div>'; }
+}
+
+function filterProducts() {
+  const q = (document.getElementById('prod-search')?.value || '').toLowerCase();
+  const filtered = allProducts.filter(p => {
+    const mc = currentFilter === 'all' || p.category === currentFilter;
+    const mq = !q || p.name.toLowerCase().includes(q) || p.origin.toLowerCase().includes(q) || (p.markets||'').toLowerCase().includes(q);
+    return mc && mq;
+  });
+  document.getElementById('all-products').innerHTML = filtered.length
+    ? filtered.map(p => productCard(p, true)).join('')
+    : '<div class="empty-state"><i class="ti ti-search"></i>No products found.</div>';
+}
+
+function setFilter(f, el) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  filterProducts();
+}
+
+function getCategoryEmoji(category, emoji) {
+    const map = {
+        'Vegetable': '🥬',
+        'Spice':     '🌿',
+        'Fruit':     '🍌',
+        'Grain':     '🌾',
+        'Other':     '📦'
+    };
+    if (emoji && emoji.length <= 4) return emoji;
+    return map[category] || '📦';
+}
+
+function productCard(p, showOrderBtn=false) {
+    const bg = p.category==='Spice'?'#FFF8E6':p.category==='Fruit'?'#F0FFF0':'#F0F8FF';
+    return `<div class="product-card">
+        <div class="product-img" style="background:${bg}">
+            <span style="font-size:4rem">${getCategoryEmoji(p.category, p.emoji)}</span>
+            <span class="product-badge">${p.category}</span>
+        </div>
+        <div class="product-info">
+            <div class="product-name">${p.name}</div>
+            <div class="product-origin"><i class="ti ti-map-pin" style="font-size:13px"></i>${p.origin}</div>
+            <div class="product-desc">${p.description||''}</div>
+            <div class="product-price"><span>${p.price||'Contact for price'}</span><span class="tag-pill">${(p.markets||'').split(',')[0]?.trim()}</span></div>
+            <button class="order-btn-card" onclick="orderProduct(${p.id},'${p.name.replace(/'/g,"\\'")}')">📦 Order This</button>
+        </div>
+    </div>`;
+}
+
+function orderProduct(id, name) {
+  showPage('order');
+  setTimeout(() => {
+    const sel = document.getElementById('o-product');
+    for (let opt of sel.options) { if (parseInt(opt.value) === id) { sel.value = opt.value; break; } }
+  }, 100);
+}
+
+// ═══════════════════════════════════════════
+//  ORDER FORM
+// ═══════════════════════════════════════════
+async function loadOrderProductSelect() {
+  try {
+    const prods = await api('/products?status=active');
+    const sel = document.getElementById('o-product');
+    sel.innerHTML = '<option value="">— Select Product —</option>' +
+      prods.map(p => `<option value="${p.id}" data-name="${p.name}">${p.emoji||''} ${p.name}</option>`).join('');
+  } catch(e) {}
+}
+
+function onProductSelect() {}
+
+async function submitOrder() {
+  const name   = document.getElementById('o-name').value.trim();
+  const email  = document.getElementById('o-email').value.trim();
+  const country= document.getElementById('o-country').value.trim();
+  const prodEl = document.getElementById('o-product');
+  const prodId = prodEl.value;
+  const prodName = prodEl.options[prodEl.selectedIndex]?.dataset?.name || prodEl.options[prodEl.selectedIndex]?.text || '';
+  const qty    = document.getElementById('o-qty').value;
+
+  if (!name || !email || !country || !prodId || !qty) { showToast('Please fill all required fields', 'error'); return; }
+
+  const btn = document.getElementById('order-submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Submitting...';
+
+  try {
+    await api('/orders', 'POST', {
+      customer_name: name,
+      company:       document.getElementById('o-company').value.trim() || null,
+      email, phone:  document.getElementById('o-phone').value.trim() || null,
+      country,
+      product_id:    parseInt(prodId),
+      product_name:  prodName.replace(/^[^\w]+/, '').trim(),
+      quantity_mt:   parseFloat(qty),
+      delivery_date: document.getElementById('o-date').value || null,
+      special_notes: document.getElementById('o-notes').value.trim() || null,
+    });
+    document.getElementById('order-form-wrap').style.display = 'none';
+    document.getElementById('order-success').style.display = 'block';
+  } catch(e) {
+    showToast('Error: ' + e.message, 'error');
+    btn.disabled = false;
+    btn.innerHTML = 'Submit Order Request';
+  }
+}
+
+function resetOrderForm() {
+  document.getElementById('order-form-wrap').style.display = 'block';
+  document.getElementById('order-success').style.display = 'none';
+  ['o-name','o-company','o-email','o-phone','o-country','o-qty','o-date','o-notes'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('o-product').value = '';
+  document.getElementById('order-submit-btn').disabled = false;
+  document.getElementById('order-submit-btn').innerHTML = 'Submit Order Request';
+}
+
+// ═══════════════════════════════════════════
+//  CONTACT / INQUIRY FORM
+// ═══════════════════════════════════════════
+async function submitInquiry() {
+  const name  = document.getElementById('c-name').value.trim();
+  const email = document.getElementById('c-email').value.trim();
+  if (!name || !email) { showToast('Name and email are required', 'error'); return; }
+
+  const btn = document.getElementById('inq-submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Sending...';
+
+  try {
+    await api('/inquiries', 'POST', {
+      name, email,
+      company:           document.getElementById('c-company').value.trim() || null,
+      country:           document.getElementById('c-country').value.trim() || null,
+      products_interest: document.getElementById('c-products').value.trim() || null,
+      message:           document.getElementById('c-message').value.trim() || null,
+    });
+    document.getElementById('contact-form-wrap').style.display = 'none';
+    document.getElementById('contact-success').style.display = 'block';
+  } catch(e) {
+    showToast('Error: ' + e.message, 'error');
+    btn.disabled = false;
+    btn.innerHTML = 'Send Inquiry';
+  }
+}
+
+function resetContactForm() {
+  document.getElementById('contact-form-wrap').style.display = 'block';
+  document.getElementById('contact-success').style.display = 'none';
+  ['c-name','c-company','c-email','c-country','c-products','c-message'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('inq-submit-btn').disabled = false;
+  document.getElementById('inq-submit-btn').innerHTML = 'Send Inquiry';
+}
+
+// ═══════════════════════════════════════════
+//  AUTH
+// ═══════════════════════════════════════════
+function openLoginModal()  { document.getElementById('login-modal').classList.add('open'); document.getElementById('l-email').focus(); }
+function closeLoginModal() { document.getElementById('login-modal').classList.remove('open'); }
+
+async function doLogin() {
+  const email = document.getElementById('l-email').value.trim();
+  const pass  = document.getElementById('l-pass').value;
+  const btn   = document.getElementById('login-btn');
+  const errEl = document.getElementById('login-err');
+  errEl.classList.remove('show');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Signing in...';
+
+  try {
+    const data = await api('/auth/login', 'POST', { email, password: pass });
+    authToken = data.access_token;
+    authUser  = { name: data.user_name, role: data.role };
+    localStorage.setItem('agro_token', authToken);
+    localStorage.setItem('agro_user', JSON.stringify(authUser));
+    closeLoginModal();
+    showPage('admin');
+  } catch(e) {
+    errEl.classList.add('show');
+    btn.disabled = false;
+    btn.innerHTML = 'Sign In';
+  }
+}
+
+function adminLogout() {
+  authToken = null; authUser = null;
+  localStorage.removeItem('agro_token');
+  localStorage.removeItem('agro_user');
+  showPage('home');
+  showToast('Logged out successfully');
+}
+
+// ═══════════════════════════════════════════
+//  ADMIN — DASHBOARD
+// ═══════════════════════════════════════════
+async function loadDashboard() {
+  try {
+    const s = await api('/dashboard', 'GET', null, true);
+    document.getElementById('d-total-prod').textContent  = s.total_products;
+    document.getElementById('d-active-prod').textContent = s.active_products;
+    document.getElementById('d-new-orders').textContent  = s.new_orders;
+    document.getElementById('d-total-orders').textContent= s.total_orders;
+    document.getElementById('d-new-inq').textContent     = s.new_inquiries;
+    document.getElementById('d-total-inq').textContent   = s.total_inquiries;
+    document.getElementById('badge-orders').textContent    = s.new_orders;
+    document.getElementById('badge-inquiries').textContent = s.new_inquiries;
+  } catch(e) { showToast('Could not load stats. Are you logged in?', 'error'); }
+}
+
+// ═══════════════════════════════════════════
+//  ADMIN — PRODUCTS
+// ═══════════════════════════════════════════
+async function loadProducts() {
+  try {
+    const prods = await api('/products', 'GET', null, true);
+    document.getElementById('products-table').innerHTML = prods.length
+      ? prods.map(p => `<tr>
+          <td><span class="prod-emoji">${p.emoji||'🌿'}</span><strong>${p.name}</strong></td>
+          <td>${p.category}</td>
+          <td style="font-size:.8rem;color:var(--text2)">${p.origin}</td>
+          <td style="font-size:.8rem">${p.price||'—'}</td>
+          <td style="font-size:.8rem">${p.markets||'—'}</td>
+          <td><span class="status-badge s-${p.status}">${p.status}</span></td>
+          <td><div class="action-btns">
+            <button class="btn-icon" onclick="openProductModal(${p.id})" title="Edit"><i class="ti ti-edit"></i></button>
+            <button class="btn-icon danger" onclick="deleteProduct(${p.id})" title="Delete"><i class="ti ti-trash"></i></button>
+          </div></td>
+        </tr>`).join('')
+      : '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--text2)">No products yet. Add your first product!</td></tr>';
+  } catch(e) { showToast('Failed to load products', 'error'); }
+}
+
+// ── Product Modal ──────────────────────────
+async function openProductModal(id=null) {
+  editingProductId = id;
+  selectedEmoji = '🌿';
+  document.getElementById('prod-modal-title').textContent = id ? 'Edit Product' : 'Add New Product';
+
+  if (id) {
+    try {
+      const p = await api(`/products/${id}`);
+      document.getElementById('f-name').value   = p.name;
+      document.getElementById('f-cat').value    = p.category;
+      document.getElementById('f-status').value = p.status;
+      document.getElementById('f-origin').value = p.origin;
+      document.getElementById('f-desc').value   = p.description || '';
+      document.getElementById('f-price').value  = p.price || '';
+      document.getElementById('f-markets').value= p.markets || '';
+      selectedEmoji = p.emoji || '🌿';
+    } catch(e) { showToast('Could not load product', 'error'); return; }
+  } else {
+    ['f-name','f-origin','f-desc','f-price','f-markets'].forEach(i => document.getElementById(i).value = '');
+    document.getElementById('f-cat').value    = 'Vegetable';
+    document.getElementById('f-status').value = 'active';
+  }
+  renderEmojiPicker();
+  document.getElementById('product-modal').classList.add('open');
+}
+
+function closeProductModal() { document.getElementById('product-modal').classList.remove('open'); }
+
+function renderEmojiPicker() {
+  document.getElementById('emoji-picker').innerHTML = EMOJIS.map(e =>
+    `<div class="emoji-opt${e===selectedEmoji?' selected':''}" onclick="selectEmoji('${e}',this)">${e}</div>`
+  ).join('');
+}
+
+function selectEmoji(e, el) {
+  selectedEmoji = e;
+  document.querySelectorAll('.emoji-opt').forEach(x => x.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+async function saveProduct() {
+  const name = document.getElementById('f-name').value.trim();
+  if (!name) { showToast('Product name is required', 'error'); return; }
+
+  const btn = document.getElementById('prod-save-btn');
+  btn.disabled = true; btn.textContent = 'Saving...';
+
+  const body = {
+    name, category: document.getElementById('f-cat').value,
+    status: document.getElementById('f-status').value,
+    origin: document.getElementById('f-origin').value || 'India',
+    description: document.getElementById('f-desc').value || '',
+    price: document.getElementById('f-price').value || '',
+    markets: document.getElementById('f-markets').value || '',
+    emoji: selectedEmoji,
+  };
+
+  try {
+    if (editingProductId) {
+      await api(`/products/${editingProductId}`, 'PUT', body, true);
+      showToast('Product updated!');
+    } else {
+      await api('/products', 'POST', body, true);
+      showToast('Product added to your website!');
+    }
+    closeProductModal();
+    loadProducts();
+    loadHomeProducts();
+  } catch(e) {
+    showToast('Error: ' + e.message, 'error');
+  } finally {
+    btn.disabled = false; btn.textContent = 'Save Product';
+  }
+}
+
+async function deleteProduct(id) {
+  if (!confirm('Delete this product? This cannot be undone.')) return;
+  try {
+    await api(`/products/${id}`, 'DELETE', null, true);
+    showToast('Product deleted');
+    loadProducts(); loadHomeProducts();
+  } catch(e) { showToast('Error: ' + e.message, 'error'); }
+}
+
+// ═══════════════════════════════════════════
+//  ADMIN — ORDERS
+// ═══════════════════════════════════════════
+const ORDER_STATUSES = ['NEW','PROCESSING','CONFIRMED','SHIPPED','COMPLETED','CANCELLED'];
+
+async function loadOrders() {
+  try {
+    const orders = await api('/orders', 'GET', null, true);
+    document.getElementById('badge-orders').textContent = orders.filter(o=>o.status==='NEW').length;
+    document.getElementById('orders-table').innerHTML = orders.length
+      ? orders.map(o => `<tr>
+          <td style="color:var(--text2);font-size:.8rem">#${o.id}</td>
+          <td><strong>${o.customer_name}</strong><br><span style="font-size:.75rem;color:var(--text2)">${o.email}</span></td>
+          <td>${o.product_name}</td>
+          <td>${o.quantity_mt} MT</td>
+          <td>${o.country}</td>
+          <td style="font-size:.78rem;color:var(--text2)">${new Date(o.created_at).toLocaleDateString('en-IN')}</td>
+          <td><span class="status-badge s-${o.status.toLowerCase()}">${o.status}</span></td>
+          <td><div class="action-btns">
+            <select class="status-select" onchange="updateOrderStatus(${o.id},this.value)">
+              ${ORDER_STATUSES.map(s=>`<option${s===o.status?' selected':''}>${s}</option>`).join('')}
+            </select>
+            <button class="btn-icon danger" onclick="deleteOrder(${o.id})"><i class="ti ti-trash"></i></button>
+          </div></td>
+        </tr>`).join('')
+      : '<tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--text2)">No orders yet.</td></tr>';
+  } catch(e) { showToast('Failed to load orders', 'error'); }
+}
+
+async function updateOrderStatus(id, status) {
+  try { await api(`/orders/${id}/status`, 'PATCH', { status }, true); showToast('Order status updated'); loadDashboard(); }
+  catch(e) { showToast('Error: ' + e.message, 'error'); }
+}
+
+async function deleteOrder(id) {
+  if (!confirm('Delete this order?')) return;
+  try { await api(`/orders/${id}`, 'DELETE', null, true); showToast('Order deleted'); loadOrders(); }
+  catch(e) { showToast('Error: ' + e.message, 'error'); }
+}
+
+// ═══════════════════════════════════════════
+//  ADMIN — INQUIRIES
+// ═══════════════════════════════════════════
+const INQ_STATUSES = ['NEW','CONTACTED','QUOTATION_SENT','CLOSED'];
+
+async function loadInquiries() {
+  try {
+    const inqs = await api('/inquiries', 'GET', null, true);
+    document.getElementById('badge-inquiries').textContent = inqs.filter(i=>i.status==='NEW').length;
+    document.getElementById('inquiries-table').innerHTML = inqs.length
+      ? inqs.map(i => `<tr>
+          <td style="color:var(--text2);font-size:.8rem">#${i.id}</td>
+          <td><strong>${i.name}</strong>${i.company?`<br><span style="font-size:.75rem;color:var(--text2)">${i.company}</span>`:''}</td>
+          <td style="font-size:.82rem">${i.email}</td>
+          <td>${i.country||'—'}</td>
+          <td style="font-size:.78rem;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${i.products_interest||'—'}</td>
+          <td style="font-size:.78rem;color:var(--text2)">${new Date(i.created_at).toLocaleDateString('en-IN')}</td>
+          <td><span class="status-badge s-${i.status.toLowerCase()}">${i.status}</span></td>
+          <td><div class="action-btns">
+            <select class="status-select" onchange="updateInquiryStatus(${i.id},this.value)">
+              ${INQ_STATUSES.map(s=>`<option${s===i.status?' selected':''}>${s}</option>`).join('')}
+            </select>
+            <button class="btn-icon danger" onclick="deleteInquiry(${i.id})"><i class="ti ti-trash"></i></button>
+          </div></td>
+        </tr>`).join('')
+      : '<tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--text2)">No inquiries yet.</td></tr>';
+  } catch(e) { showToast('Failed to load inquiries', 'error'); }
+}
+
+async function updateInquiryStatus(id, status) {
+  try { await api(`/inquiries/${id}/status`, 'PATCH', { status }, true); showToast('Inquiry status updated'); loadDashboard(); }
+  catch(e) { showToast('Error: ' + e.message, 'error'); }
+}
+
+async function deleteInquiry(id) {
+  if (!confirm('Delete this inquiry?')) return;
+  try { await api(`/inquiries/${id}`, 'DELETE', null, true); showToast('Inquiry deleted'); loadInquiries(); }
+  catch(e) { showToast('Error: ' + e.message, 'error'); }
+}
+
+// ═══════════════════════════════════════════
+//  ADMIN — SETTINGS
+// ═══════════════════════════════════════════
+async function loadSettings() {
+  try {
+    const s = await api('/settings');
+    document.getElementById('s-name').value    = s.company_name || '';
+    document.getElementById('s-email').value   = s.email        || '';
+    document.getElementById('s-phone').value   = s.phone        || '';
+    document.getElementById('s-loc').value     = s.location     || '';
+    document.getElementById('s-tagline').value = s.tagline      || '';
+    if (s.email)    document.getElementById('footer-email').textContent = s.email;
+    if (s.phone)    document.getElementById('footer-phone').textContent = s.phone;
+    if (s.location) document.getElementById('footer-loc').textContent   = s.location;
+  } catch(e) {}
+}
+
+async function saveSettings() {
+  try {
+    await api('/settings', 'PUT', {
+      company_name: document.getElementById('s-name').value,
+      email:        document.getElementById('s-email').value,
+      phone:        document.getElementById('s-phone').value,
+      location:     document.getElementById('s-loc').value,
+      tagline:      document.getElementById('s-tagline').value,
+    }, true);
+    loadSettings();
+    showToast('Settings saved!');
+  } catch(e) { showToast('Error saving settings', 'error'); }
+}
+
+// ═══════════════════════════════════════════
+//  ADMIN SECTION SWITCHER
+// ═══════════════════════════════════════════
+function showAdminSection(s, el) {
+  ['dashboard','products','orders','inquiries','settings'].forEach(x =>
+    document.getElementById('admin-'+x).style.display = x===s ? 'block' : 'none'
+  );
+  document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+  if (el) el.classList.add('active');
+  if (s === 'products')  loadProducts();
+  if (s === 'orders')    loadOrders();
+  if (s === 'inquiries') loadInquiries();
+  if (s === 'settings')  loadSettings();
+}
+
+// ═══════════════════════════════════════════
+//  TOAST
+// ═══════════════════════════════════════════
+function showToast(msg, type='success') {
+  const t = document.getElementById('toast');
+  t.className = `toast ${type}`;
+  t.querySelector('i').className = type==='error' ? 'ti ti-alert-circle' : 'ti ti-check';
+  document.getElementById('toast-msg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ═══════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════
+loadHomeProducts();
+loadSettings();
+</script>
+</body>
+</html>
