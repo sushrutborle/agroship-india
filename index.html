@@ -644,7 +644,6 @@ function getCategoryEmoji(category, emoji) {
         'Grain':     '🌾',
         'Other':     '📦'
     };
-    if (emoji && emoji.length <= 4) return emoji;
     return map[category] || '📦';
 }
 
