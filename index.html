@@ -636,22 +636,32 @@ function setFilter(f, el) {
   filterProducts();
 }
 
-function getCategoryEmoji(category, emoji) {
-    const map = {
-        'Vegetable': '🥬',
-        'Spice':     '🌿',
-        'Fruit':     '🍌',
-        'Grain':     '🌾',
-        'Other':     '📦'
+function getCategoryEmoji(category, name) {
+    const nameMap = {
+        'onion':    '🧅',
+        'lemon':    '🍋',
+        'banana':   '🍌',
+        'turmeric': '🌿',
+        'garlic':   '🧄',
+        'chilli':   '🌶️',
+        'tomato':   '🍅',
+        'potato':   '🥔',
+        'carrot':   '🥕',
+        'ginger':   '🫚',
+        'grape':    '🍇',
     };
-    return map[category] || '📦';
+    const n = (name||'').toLowerCase();
+    const match = Object.keys(nameMap).find(k => n.includes(k));
+    if (match) return nameMap[match];
+    const catMap = { 'Vegetable':'🥬','Spice':'🌿','Fruit':'🍌','Grain':'🌾','Other':'📦' };
+    return catMap[category] || '📦';
 }
 
 function productCard(p, showOrderBtn=false) {
     const bg = p.category==='Spice'?'#FFF8E6':p.category==='Fruit'?'#F0FFF0':'#F0F8FF';
     return `<div class="product-card">
         <div class="product-img" style="background:${bg}">
-            <span style="font-size:4rem">${getCategoryEmoji(p.category, p.emoji)}</span>
+            <span style="font-size:4rem">${getCategoryEmoji(p.category, p.name)}</span>
             <span class="product-badge">${p.category}</span>
         </div>
         <div class="product-info">
@@ -831,7 +841,7 @@ async function loadProducts() {
     const prods = await api('/products', 'GET', null, true);
     document.getElementById('products-table').innerHTML = prods.length
       ? prods.map(p => `<tr>
-          <td><span class="prod-emoji">${p.emoji||'🌿'}</span><strong>${p.name}</strong></td>
+          <td><span class="prod-emoji">${getCategoryEmoji(p.category, p.name)}</span><strong>${p.name}</strong></td>
           <td>${p.category}</td>
           <td style="font-size:.8rem;color:var(--text2)">${p.origin}</td>
           <td style="font-size:.8rem">${p.price||'—'}</td>
