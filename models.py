@@ -2,6 +2,10 @@ from sqlalchemy import Column, Integer, String, Text, Boolean, DateTime, Enum, D
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from database import Base
+import datetime
+
+def now():
+    return datetime.datetime.utcnow()
 
 class User(Base):
     __tablename__ = "users"
@@ -11,7 +15,7 @@ class User(Base):
     password   = Column(String(255), nullable=False)
     role       = Column(Enum("admin", "staff"), default="admin")
     is_active  = Column(Boolean, default=True)
-    created_at = Column(DateTime, server_default=func.now())
+    created_at = Column(DateTime, default=now)
 
 class Product(Base):
     __tablename__ = "products"
@@ -24,8 +28,8 @@ class Product(Base):
     markets     = Column(String(255))
     emoji       = Column(String(10),  default="🌿")
     status      = Column(Enum("active", "draft"), default="active")
-    created_at  = Column(DateTime, server_default=func.now())
-    updated_at  = Column(DateTime, server_default=func.now(), onupdate=func.now())
+    created_at  = Column(DateTime, default=now)
+    updated_at  = Column(DateTime, default=now, onupdate=now)
     orders      = relationship("Order", back_populates="product")
 
 class Order(Base):
@@ -42,8 +46,8 @@ class Order(Base):
     delivery_date = Column(Date, nullable=True)
     special_notes = Column(Text)
     status        = Column(Enum("NEW","PROCESSING","CONFIRMED","SHIPPED","COMPLETED","CANCELLED"), default="NEW")
-    created_at    = Column(DateTime, server_default=func.now())
-    updated_at    = Column(DateTime, server_default=func.now(), onupdate=func.now())
+    created_at    = Column(DateTime, default=now)
+    updated_at    = Column(DateTime, default=now, onupdate=now)
     product       = relationship("Product", back_populates="orders")
 
 class Inquiry(Base):
@@ -56,12 +60,12 @@ class Inquiry(Base):
     products_interest = Column(String(255))
     message           = Column(Text)
     status            = Column(Enum("NEW","CONTACTED","QUOTATION_SENT","CLOSED"), default="NEW")
-    created_at        = Column(DateTime, server_default=func.now())
-    updated_at        = Column(DateTime, server_default=func.now(), onupdate=func.now())
+    created_at        = Column(DateTime, default=now)
+    updated_at        = Column(DateTime, default=now, onupdate=now)
 
 class Setting(Base):
     __tablename__ = "settings"
     id          = Column(Integer, primary_key=True, index=True)
     setting_key = Column(String(100), unique=True, nullable=False)
     value       = Column(Text)
-    updated_at  = Column(DateTime, server_default=func.now(), onupdate=func.now())
+    updated_at  = Column(DateTime, default=now, onupdate=now)
