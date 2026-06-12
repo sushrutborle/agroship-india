@@ -257,9 +257,12 @@ footer{background:#0E0E06;padding:1.5rem 2rem;text-align:center;color:#606050;fo
     <h1>From India's Fields<br>to the <span>World's Tables</span></h1>
     <p>We export premium quality vegetables, spices and agricultural products from India's finest growing regions to global markets.</p>
     <div class="hero-btns">
-      <button class="btn-primary" onclick="showPage('products')">View Our Products</button>
+     <!--  <button class="btn-primary" onclick="showPage('products')">View Our Products</button>
       <button class="btn-green" onclick="showPage('order')">📦 Place Order</button>
-      <button class="btn-outline" onclick="showPage('contact')">Get a Quote</button>
+      <button class="btn-outline" onclick="showPage('contact')">Get a Quote</button> -->
+      <a class="btn-primary" data-page="products" onclick="showPage('products')">View Our Products</a>
+      <a class="btn-green" data-page="order" onclick="showPage('order')">📦 Place Order</a>
+      <a class="btn-outline" data-page="contact" onclick="showPage('contact')">Get a Quote</a>
     </div>
   </div>
 
