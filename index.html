@@ -591,9 +591,19 @@ function showPage(name) {
   if (name === 'admin')    { loadDashboard(); loadProducts(); }
 }
 
+//document.querySelectorAll('.nav-link').forEach(l =>
+//  l.addEventListener('click', e => { e.preventDefault(); showPage(l.dataset.page); })
+//);
+
 document.querySelectorAll('.nav-link').forEach(l =>
   l.addEventListener('click', e => { e.preventDefault(); showPage(l.dataset.page); })
 );
+
+document.querySelectorAll('.hero-btns a, .hero-btns button').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+  });
+});
 
 // ═══════════════════════════════════════════
 //  PRODUCTS — PUBLIC
